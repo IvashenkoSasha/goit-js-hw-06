@@ -4,20 +4,22 @@ formEl.addEventListener('submit', formValidator);
 
 
 function formValidator(evt) {
+    let varToCheckRight = true;
     let data = {};
     evt.preventDefault();
     const formData = new FormData(evt.currentTarget);
     formData.forEach((value, name) => {
         if (value === '') {
             window.alert('Всі поля повинні бути заповненими!');
-            data = false;
+            varToCheckRight = false;
             formEl.reset();
+            return;
         } else {
             data[name] = value;
         };
     });
     formEl.reset()
-    if (data !== false) {
+    if (varToCheckRight !== false) {
         console.log(data);
     }
 };

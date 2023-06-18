@@ -14,7 +14,7 @@ const images = [
 ];
 const list = document.querySelector('.gallery');
 
-list.insertAdjacentHTML('afterbegin', images.flatMap(image => `<li><img src="${image.url}" alt="${image.alt}" width="400px" height="225px"></li>`).join(''));
+list.insertAdjacentHTML('afterbegin', images.map(image => `<li><img src="${image.url}" alt="${image.alt}" width="400px" height="225px"></li>`).join(''));
 
 {/* <li><img src="${images[0].url}" alt="${images[0].alt}" width="400px" height="225px"></li>
 <li><img src="${images[1].url}" alt="${images[1].alt}" width="400px" height="225px"></li>
