@@ -11,13 +11,13 @@ const destroyBtnEl = controlPanelEl.lastElementChild;
 const wrapForBoxesEl = document.querySelector('#boxes');
 
 let boxSize = 30;
-const elementsToAppend = [];
+let elementsToAppend = [];
 
 createBtnEl.addEventListener('click', createBoxes)
 
 function createBoxes() {
   const boxesCount = inputEl.value;
-  for (let i = 0; i <= boxesCount; i += 1){
+  for (let i = 0; i < boxesCount; i += 1){
     const el = document.createElement('div');
     el.style.width = `${boxSize}px`;
     el.style.height = `${boxSize}px`;
@@ -26,4 +26,11 @@ function createBoxes() {
     boxSize += 10;
   };
   wrapForBoxesEl.append(...elementsToAppend);
+  elementsToAppend = [];
+};
+
+destroyBtnEl.addEventListener('click', destroyBoxes)
+
+function destroyBoxes() {
+  wrapForBoxesEl.innerHTML = '';
 };
